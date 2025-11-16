@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "90240735628",
+    "project_id": "provamobile-59a2b",
+    "storage_bucket": "provamobile-59a2b.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:90240735628:android:a3e8e92f2a507a3e931ea9",
+        "android_client_info": {
+          "package_name": "com.example.p2mobile"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDaUv832ARvu9_0cjK6JGwpXXBsBOQvygQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:90240735628:android:4c524e204235c0fc931ea9",
+        "android_client_info": {
+          "package_name": "com.example.provamobile"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDaUv832ARvu9_0cjK6JGwpXXBsBOQvygQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
