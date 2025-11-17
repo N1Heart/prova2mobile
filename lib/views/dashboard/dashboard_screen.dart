@@ -3,6 +3,7 @@ import 'package:p2mobile/views/refueling/add_fueling_screen.dart';
 import 'package:p2mobile/views/refueling/fueling_history_screen.dart';
 import 'package:p2mobile/viewmodels/auth_viewmodel.dart';
 import 'package:p2mobile/views/vehicles/vehicle_list_screen.dart';
+import 'package:p2mobile/views/charts/statistics_screen.dart';
 import 'package:provider/provider.dart';
 
 class DashboardScreen extends StatelessWidget {
@@ -140,7 +141,22 @@ class AppDrawer extends StatelessWidget {
               );
             },
           ),
+          ListTile(
+            leading: const Icon(Icons.bar_chart_outlined),
+            title: const Text('Estatísticas'),
+            onTap: () {
+              Navigator.of(context).pop();
 
+              // [MUDANÇA] Removemos o SnackBar e ativamos a navegação
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => StatisticsScreen(), // Sem 'const'
+                ),
+              );
+            },
+          ),
+
+          const Divider(),
           const Divider(),
 
           // --- Item Sair (Funcional) ---

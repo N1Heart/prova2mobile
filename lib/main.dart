@@ -3,6 +3,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:p2mobile/data/services/auth_service.dart';
 import 'package:p2mobile/data/services/firestore_service.dart';
 import 'package:p2mobile/viewmodels/auth_viewmodel.dart';
+import 'package:p2mobile/viewmodels/chart_viewmodel.dart'; // [NOVO] Import
 import 'package:p2mobile/viewmodels/fueling_viewmodel.dart';
 import 'package:p2mobile/viewmodels/vehicle_viewmodel.dart';
 import 'package:p2mobile/views/auth/auth_wrapper.dart';
@@ -38,14 +39,17 @@ class MyApp extends StatelessWidget {
           create: (context) =>
               VehicleViewModel(context.read<FirestoreService>()),
         ),
-        // [NOVO] Provê o FuelingViewModel
         ChangeNotifierProvider<FuelingViewModel>(
           create: (context) =>
               FuelingViewModel(context.read<FirestoreService>()),
         ),
+        // [NOVO] Provê o ChartViewModel
+        ChangeNotifierProvider<ChartViewModel>(
+          create: (context) => ChartViewModel(context.read<FirestoreService>()),
+        ),
       ],
       child: MaterialApp(
-        title: 'Gerenciador de Abastecimento',
+        title: 'Fuel Manager',
         debugShowCheckedModeBanner: false,
         theme: AppTheme.lightTheme,
         home: const AuthWrapper(),
