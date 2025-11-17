@@ -90,7 +90,7 @@ class AppDrawer extends StatelessWidget {
               color: Theme.of(context).colorScheme.primary,
             ),
             child: Text(
-              'Fuel Manager',
+              'Gerenciador de Abastecimento',
               style: Theme.of(
                 context,
               ).textTheme.titleLarge?.copyWith(color: Colors.white),

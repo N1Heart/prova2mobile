@@ -8,7 +8,7 @@ import 'package:p2mobile/viewmodels/vehicle_viewmodel.dart';
 import 'package:p2mobile/views/auth/auth_wrapper.dart';
 import 'package:provider/provider.dart';
 import 'package:intl/date_symbol_data_local.dart';
-//import 'core/theme/app_theme.dart';
+import 'core/theme/app_theme.dart';
 import 'firebase_options.dart';
 
 void main() async {
@@ -45,9 +45,9 @@ class MyApp extends StatelessWidget {
         ),
       ],
       child: MaterialApp(
-        title: 'Fuel Manager',
+        title: 'Gerenciador de Abastecimento',
         debugShowCheckedModeBanner: false,
-        //theme: AppTheme.lightTheme,
+        theme: AppTheme.lightTheme,
         home: const AuthWrapper(),
       ),
     );
