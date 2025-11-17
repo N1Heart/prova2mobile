@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:p2mobile/views/refueling/add_fueling_screen.dart';
+import 'package:p2mobile/views/refueling/fueling_history_screen.dart';
 import 'package:p2mobile/viewmodels/auth_viewmodel.dart';
-import 'package:p2mobile/views/vehicles/vehicle_list_screen.dart'; // [NOVO] Import
+import 'package:p2mobile/views/vehicles/vehicle_list_screen.dart';
 import 'package:provider/provider.dart';
 
 class DashboardScreen extends StatelessWidget {
@@ -88,55 +90,59 @@ class AppDrawer extends StatelessWidget {
               color: Theme.of(context).colorScheme.primary,
             ),
             child: Text(
-              'Gerenciador de Abastecimento',
+              'Fuel Manager',
               style: Theme.of(
                 context,
               ).textTheme.titleLarge?.copyWith(color: Colors.white),
             ),
           ),
 
-          // --- Item Meus Veículos (Funcional) ---
+          // --- Item Meus Veículos (Da Etapa 3) ---
           ListTile(
             leading: const Icon(Icons.directions_car_outlined),
             title: const Text('Meus Veículos'),
             onTap: () {
-              // 1. Fecha o Drawer
               Navigator.of(context).pop();
-              // 2. [NOVO] Navega para a lista de veículos
               Navigator.of(context).push(
-                MaterialPageRoute(builder: (context) => VehicleListScreen()),
+                MaterialPageRoute(
+                  builder: (context) => const VehicleListScreen(),
+                ),
               );
             },
           ),
 
-          // --- Item Registrar Abastecimento (Placeholder) ---
+          // --- [ATUALIZADO] Item Registrar Abastecimento (Funcional) ---
           ListTile(
             leading: const Icon(Icons.local_gas_station_outlined),
             title: const Text('Registrar Abastecimento'),
             onTap: () {
-              // TODO: Implementar na Etapa 4
               Navigator.of(context).pop();
-              // Mostrar um Snackbar temporário
-              ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(content: Text('Em desenvolvimento...')),
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  // Navega para o formulário
+                  builder: (context) => const AddFuelingScreen(),
+                ),
               );
             },
           ),
 
-          // --- Item Histórico (Placeholder) ---
+          // --- [ATUALIZADO] Item Histórico (Funcional) ---
           ListTile(
             leading: const Icon(Icons.history_outlined),
             title: const Text('Histórico de Abastecimentos'),
             onTap: () {
-              // TODO: Implementar na Etapa 4
               Navigator.of(context).pop();
-              ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(content: Text('Em desenvolvimento...')),
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  // Navega para a lista de histórico
+                  builder: (context) => const FuelingHistoryScreen(),
+                ),
               );
             },
           ),
 
-          const Divider(), // Linha divisória
+          const Divider(),
+
           // --- Item Sair (Funcional) ---
           ListTile(
             leading: Icon(
@@ -148,9 +154,7 @@ class AppDrawer extends StatelessWidget {
               style: TextStyle(color: Theme.of(context).colorScheme.error),
             ),
             onTap: () {
-              // 1. Fecha o Drawer
               Navigator.of(context).pop();
-              // 2. Faz o Logout
               context.read<AuthViewModel>().signOut();
             },
           ),

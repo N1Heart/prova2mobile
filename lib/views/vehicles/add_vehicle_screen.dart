@@ -54,7 +54,6 @@ class _AddVehicleScreenState extends State<AddVehicleScreen> {
   // Função de Salvar
   void _submitForm() async {
     if (_formKey.currentState!.validate()) {
-      // Cria o objeto Vehicle
       final newVehicle = Vehicle(
         modelo: _modeloController.text.trim(),
         marca: _marcaController.text.trim(),
@@ -63,14 +62,11 @@ class _AddVehicleScreenState extends State<AddVehicleScreen> {
         tipoCombustivel: _selectedFuelType,
       );
 
-      // Chama o ViewModel
-      final success = await context.read<VehicleViewModel>().addVehicle(
-        context,
-        newVehicle,
-      );
+      final viewModel = context.read<VehicleViewModel>();
 
-      if (success && context.mounted) {
-        // Se salvou, fecha a tela
+      final success = await viewModel.addVehicle(context, newVehicle);
+
+      if (success && mounted) {
         Navigator.of(context).pop();
       }
     }
@@ -125,7 +121,7 @@ class _AddVehicleScreenState extends State<AddVehicleScreen> {
 
               // Dropdown para Tipo de Combustível
               DropdownButtonFormField<FuelType>(
-                value: _selectedFuelType,
+                initialValue: _selectedFuelType,
                 decoration: const InputDecoration(
                   labelText: 'Tipo de Combustível',
                 ),
